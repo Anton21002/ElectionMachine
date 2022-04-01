@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import app.model.Question;
+import app.model.Kysymys;
 
 public class Dao {
 
@@ -34,12 +34,12 @@ public class Dao {
 		}
 	}
 
-	public int saveQuestion(Question question) {
+	public int saveKysymys(Kysymys kysymys) {
 		Statement stmt=null;
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("insert into KYSYMYS(KYSYMYS) values('"+question.getQuestion()+"'");
+			count=stmt.executeUpdate("insert into kysymykset(breed) values('"+kysymys.getKYSYMYS()+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,18 +47,18 @@ public class Dao {
 		return count;
 	}
 	
-	public ArrayList<Question> readAllQuestions() {
-		ArrayList<Question> list=new ArrayList<>();
+	public ArrayList<Kysymys> readAllKysymys() {
+		ArrayList<Kysymys> list=new ArrayList<>();
 		Statement stmt=null;
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			ResultSet rs=stmt.executeQuery("select * from KYSYMYS");
+			ResultSet rs=stmt.executeQuery("select * from kysymykset");
 			while (rs.next()) {
-				Question question=new Question();
-				question.setId(rs.getInt("KYSYMYS_ID"));
-				question.setQuestion(rs.getString("KYSYMYS"));
-				list.add(question);
+				Kysymys kysymys=new Kysymys();
+				kysymys.setId(rs.getInt("KYSYMYS_ID"));
+				kysymys.setKYSYMYS(rs.getString("KYSYMYS"));
+				list.add(kysymys);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -67,15 +67,15 @@ public class Dao {
 		return list;
 	}
 	
-	public int updateQuestion(Question question) {
+	public int updateKysymys(Kysymys kysymys) {
 		int count = 0;
-		String sql = "update KYSYMYS set KYSYMYS = ? where KYSYMYS_ID = ?";
+		String sql = "update kysymykset set KYSYMYS = ? where KYSYMYS_ID = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
-			stmt.setString(1, question.getQuestion());
+			stmt.setString(1, kysymys.getKYSYMYS());
 			
-			stmt.setInt(3, question.getId());
+			stmt.setInt(3, kysymys.getId());
 			
 			count = stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -84,12 +84,12 @@ public class Dao {
 		}
 		return count;
 	}
-	public int removeQuestion(Question question) {
+	public int removeKysymys(Kysymys kysymys) {
 		Statement stmt=null;
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("delete from KYSYMYS where KYSYMYS_ID='"+question.getId()+"'");
+			count=stmt.executeUpdate("delete from kysymykset where id='"+kysymys.getId()+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,9 +97,9 @@ public class Dao {
 		return count;
 	}
 	
-	public Question getQuestionInfo(int id) {
-		Question result = null;
-		String sql = "select * from Kysymys where KYSYMYS_ID = ?";
+	public Kysymys getKysymysInfo(int id) {
+		Kysymys result = null;
+		String sql = "select * from kysymykset where id = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 						
@@ -108,9 +108,9 @@ public class Dao {
 			ResultSet resultset = stmt.executeQuery();
 			
 			if (resultset.next()) {
-				result = new Question();
+				result = new Kysymys();
 				result.setId(resultset.getInt("KYSYMYS_ID"));
-				result.setQuestion(resultset.getString("KYSYMYS"));
+				result.setKYSYMYS(resultset.getString("KYSYMYS"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
