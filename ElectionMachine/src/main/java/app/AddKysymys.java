@@ -14,10 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import app.dao.Dao;
 import app.model.Kysymys;
 
-/*
- * The name of the servlet is AddGame
- * and the servlet's URI (url-pattern) is 'addgame'
- */
 @WebServlet(
 		name = "AddKysymys",
 		urlPatterns = {"/addkysymys"}
@@ -40,7 +36,7 @@ public class AddKysymys extends HttpServlet {
 		/*
 		 * With a RequestDispatcher object is the htmlstart.html file included to this servlet
 		 */
-		RequestDispatcher rd=request.getRequestDispatcher("staticpages/htmlstart.html");
+		RequestDispatcher rd=request.getRequestDispatcher("/htmlstart.html");
 		rd.include(request,  response);;
 		
 		// Read parameters to Model
@@ -58,12 +54,12 @@ public class AddKysymys extends HttpServlet {
 		dao.close();
 		
 		
-		out.println("<br><a href='./form.html'>Back to form</a>");
+		out.println("<br><a href='./index.html'>Back to index</a>");
 
 		/*
 		 * With a RequestDispatcher object is the htmlend.html file included to this servlet
 		 */
-		rd=request.getRequestDispatcher("staticpages/htmlend.html");
+		rd=request.getRequestDispatcher("/htmlend.html");
 		rd.include(request,  response);;
 	}
 
@@ -71,7 +67,7 @@ public class AddKysymys extends HttpServlet {
 	private Kysymys readKysymys(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		Kysymys kysymys=new Kysymys();
-		kysymys.setKYSYMYS(request.getParameter("breed"));
+		kysymys.setKYSYMYS(request.getParameter("KYSYMYS"));
 		return kysymys;
 	}
 	

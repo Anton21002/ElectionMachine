@@ -39,7 +39,7 @@ public class Dao {
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("insert into kysymykset(breed) values('"+kysymys.getKYSYMYS()+"'");
+			count=stmt.executeUpdate("insert into kysymykset values('"+kysymys.getKYSYMYS()+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,10 +72,10 @@ public class Dao {
 		String sql = "update kysymykset set KYSYMYS = ? where KYSYMYS_ID = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			
+
 			stmt.setString(1, kysymys.getKYSYMYS());
-			
-			stmt.setInt(3, kysymys.getId());
+
+			stmt.setInt(2, kysymys.getId());
 			
 			count = stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -89,7 +89,7 @@ public class Dao {
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("delete from kysymykset where id='"+kysymys.getId()+"'");
+			count=stmt.executeUpdate("delete from kysymykset where KYSYMYS_ID='"+kysymys.getId()+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,7 +99,7 @@ public class Dao {
 	
 	public Kysymys getKysymysInfo(int id) {
 		Kysymys result = null;
-		String sql = "select * from kysymykset where id = ?";
+		String sql = "select * from kysymykset where KYSYMYS_ID = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 						

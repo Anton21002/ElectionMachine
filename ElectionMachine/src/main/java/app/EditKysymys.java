@@ -75,8 +75,8 @@ public class EditKysymys extends HttpServlet {
 	private Kysymys readKysymys(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		Kysymys kysymys=new Kysymys();
+		kysymys.setId(Integer.parseInt(request.getParameter("id")));
 		kysymys.setKYSYMYS(request.getParameter("KYSYMYS"));
-		kysymys.setId(Integer.parseInt(request.getParameter("KYSYMYS_ID")));
 		return kysymys;
 	}
 }
