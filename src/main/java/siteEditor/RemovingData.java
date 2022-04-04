@@ -1,6 +1,7 @@
 package siteEditor;
 
 import java.sql.SQLException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+
+import app.dao.Dao;
+import app.model.Kysymys;
+
 
 public class RemovingData {
 	
@@ -43,14 +49,14 @@ System.out.println("Candidate Successfully Removed");
 
 conn.close();
 }
-public void RemoveQuestion (HttpServletRequest request, HttpServletResponse response,Questions question) 
+public void RemoveQuestion (HttpServletRequest request, HttpServletResponse response,Kysymuset kysymus) 
 	      throws IOException, ServletException {
 	conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:6033/vaalikone", "root", "password");
 int Remquesexec = 0;
 String sql="DELETE FROM kysymykset WHERE KYSYMYS_ID=?";
 try {
 	PreparedStatement stmt = conn.prepareStatement(sql);
-	stmt.setInt(1,question.getKYSYMYSID);
+	stmt.setInt(1,kysymus.getKYSYMYSID);
 	Remquesexec=stmt.executeUpdate() ;
 } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 	// TODO Auto-generated catch block
