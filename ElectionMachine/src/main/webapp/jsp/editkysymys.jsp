@@ -13,6 +13,7 @@
 <body>
 
 	<form action='./editkysymys' method='post'>
+		<h1>kysymys</h1>
 		Kysymys: <input type='text' name='KYSYMYS' value='${sessionScope.kysymys.KYSYMYS }'><br>
 		<input type="hidden" name="id" value="${sessionScope.kysymys.id }">		
 		<input type='submit' name='ok' value='Edit'>

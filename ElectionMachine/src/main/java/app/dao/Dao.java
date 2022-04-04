@@ -39,7 +39,7 @@ public class Dao {
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("insert into kysymykset values('"+kysymys.getKYSYMYS()+"'");
+			count=stmt.executeUpdate("insert into kysymykset set KYSYMYS='"+kysymys.getKYSYMYS()+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
