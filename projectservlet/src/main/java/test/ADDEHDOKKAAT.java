@@ -69,7 +69,9 @@ public class ADDEHDOKKAAT extends HttpServlet {
          
          if(x==1)    
          {    
-   out.println("Values Inserted Successfully");    
+   out.println("candidate Inserted Successfully");  
+   out.println("<a href='index.html' style=' color:black ;font-size:18px;' >Home</a><br>");
+
          } 
 
 	} 
