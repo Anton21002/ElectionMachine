@@ -36,7 +36,6 @@ public class ADDEHDOKKAAT extends HttpServlet {
     out=response.getWriter();    
 
 
-    String EHDOKAS_ID=request.getParameter("EHDOKAS_ID");    
     String SUKUNIMI=request.getParameter("SUKUNIMI");    
     String ETUNIMI=request.getParameter("ETUNIMI");    
     String PUOLUE=request.getParameter("PUOLUE");    
@@ -55,17 +54,16 @@ public class ADDEHDOKKAAT extends HttpServlet {
 		
 		conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:6033/vaalikone", "root", "password");
 		
-		String query="INSERT INTO EHDOKKAAT (EHDOKAS_ID,SUKUNIMI,ETUNIMI,PUOLUE,KOTIPAIKKAKUNTA,IKA,MIKSI_EDUSKUNTAAN,MITA_ASIOITA_HALUAT_EDISTAA,AMMATTI) values(?,?,?,?,?,?,?,?,?);";
+		String query="INSERT INTO EHDOKKAAT (SUKUNIMI,ETUNIMI,PUOLUE,KOTIPAIKKAKUNTA,IKA,MIKSI_EDUSKUNTAAN,MITA_ASIOITA_HALUAT_EDISTAA,AMMATTI) values(?,?,?,?,?,?,?,?);";
 		 PreparedStatement pstmt=conn.prepareStatement(query);    
-         pstmt.setString(1, EHDOKAS_ID);    
-         pstmt.setString(2, SUKUNIMI);    
-         pstmt.setString(3,ETUNIMI);    
-         pstmt.setString(4, PUOLUE);    
-         pstmt.setString(5, KOTIPAIKKAKUNTA);    
-         pstmt.setString(6,IKA); 
-         pstmt.setString(7,MIKSI_EDUSKUNTAAN); 
-         pstmt.setString(8,MITA_ASIOITA_HALUAT_EDISTAA); 
-         pstmt.setString(9,AMMATTI); 
+         pstmt.setString(1, SUKUNIMI);    
+         pstmt.setString(2,ETUNIMI);    
+         pstmt.setString(3, PUOLUE);    
+         pstmt.setString(4, KOTIPAIKKAKUNTA);    
+         pstmt.setString(5,IKA); 
+         pstmt.setString(6,MIKSI_EDUSKUNTAAN); 
+         pstmt.setString(7,MITA_ASIOITA_HALUAT_EDISTAA); 
+         pstmt.setString(8,AMMATTI); 
          
          int x=pstmt.executeUpdate();    
          

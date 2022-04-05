@@ -35,7 +35,7 @@ public class Ehdokkaatsql {
 	public static List<Ehdokkaat> getEhdokkaitta() {
 	    List<Ehdokkaat> list= new ArrayList<Ehdokkaat>();
 
-		String query="SELECT * FROM EHDOKKAAT";
+		String query="SELECT * FROM EHDOKKAAT ";
 		Connection conn=Ehdokkaatsql.getConnection();
 
 		PreparedStatement statement;
@@ -51,8 +51,8 @@ public class Ehdokkaatsql {
 		    	
 		    	Ehdokkaat ehdokas =new Ehdokkaat();
 
-
 		    	ehdokas.setEHDOKAS_ID(result.getInt(1));
+
 		    	ehdokas.setSUKUNIMI(result.getString(2));
 		    	ehdokas.setETUNIMI(result.getString(3));
 		    	ehdokas.setPUOLUE(result.getString(4));
