@@ -7,7 +7,9 @@
       
     <version>0.1.0-SNAPSHOT</version>
       
-
+    <groupId>ElectionMachine</groupId>
+      
+    <artifactId>ElectionMachine</artifactId>
       
     <properties>
             
@@ -34,7 +36,9 @@
                 <groupId>com.google.cloud</groupId>
                         
                 <artifactId>libraries-bom</artifactId>
-              
+                        
+                <version>25.1.0</version>
+                        
                 <type>pom</type>
                         
                 <scope>import</scope>
@@ -94,7 +98,14 @@
             <version>2.2.2</version>
         </dependency>
         <!-- Test Dependencies -->
-
+            <!-- I have added manually these dependencies -->
+        
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.28</version>
+		</dependency>
         <dependency>
                   
             <groupId>junit</groupId>
@@ -169,7 +180,6 @@
                 </executions>
                       
             </plugin>
-
                 
         </plugins>
           
