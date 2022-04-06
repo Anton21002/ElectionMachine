@@ -1,4 +1,4 @@
-package test;
+package app;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +20,7 @@ public class Ehdokkaatsql {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			
-			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:6033/vaalikone", "root", "password");
+			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

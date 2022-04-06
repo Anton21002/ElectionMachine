@@ -74,7 +74,7 @@ public class RemoveKysymys extends HttpServlet {
 	private Kysymys readKysymys(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		Kysymys kysymys=new Kysymys();
-		kysymys.setKYSYMYS(request.getParameter("breed"));
+		kysymys.setKYSYMYS(request.getParameter("KYSYMYS"));
 		kysymys.setId(Integer.parseInt(request.getParameter("KYSYMYS_ID")));
 		return kysymys;
 	}
