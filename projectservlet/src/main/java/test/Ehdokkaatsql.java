@@ -79,6 +79,24 @@ public class Ehdokkaatsql {
 			return list;
 	}
 	
+	public static int Delete(int ehdokasId) {
+		String sql ="DELETE FROM EHDOKKAAT WHERE EHDOKAS_ID=?";
+		Connection conn=Ehdokkaatsql.getConnection();
 
+	    try {
+	    	PreparedStatement statement=  conn.prepareStatement(sql);
+	    	statement.setInt(1,ehdokasId);
+	        statement.execute();
+	        statement.executeUpdate();
+	        conn.close();
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ehdokasId;
+		
+	}
 
 }
