@@ -37,7 +37,6 @@ public class RemoveKysymys extends HttpServlet {
 				Kysymys kysymys = dao.getKysymysInfo(id);
 				
 				session.setAttribute("kysymys", kysymys);
-				
 				RequestDispatcher rd = request.getRequestDispatcher("jsp/removekysymys.jsp");
 				rd.forward(request, response);
 				
@@ -66,7 +65,7 @@ public class RemoveKysymys extends HttpServlet {
 		dao.close();
 		
 		// Back to list after actions
-		//RequestDispatcher rd = request.getRequestDispatcher("/showdata");
+		//RequestDispatcher rd = request.getRequestDispatcher("/showkysymys");
 		//rd.forward(request, response);
 		response.sendRedirect("/showkysymys");
 	}
@@ -75,7 +74,7 @@ public class RemoveKysymys extends HttpServlet {
 		// TODO Auto-generated method stub
 		Kysymys kysymys=new Kysymys();
 		kysymys.setKYSYMYS(request.getParameter("KYSYMYS"));
-		kysymys.setId(Integer.parseInt(request.getParameter("KYSYMYS_ID")));
+		kysymys.setId(Integer.parseInt(request.getParameter("id")));
 		return kysymys;
 	}
 }
