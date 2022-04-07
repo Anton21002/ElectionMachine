@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Candidate</title>
+<style>
+body{
+background-color:#D1F2EB ;
+}
+form{
+background-color:#D1F2EB ;
+
+}
+table{
+margin:0 auto;
+}
+
+h1{
+margin-left:580px;
+}
+a{
+
+color:black;
+}
+td{
+font-size:20px;
+}
+.in{
+border-radius:4px;
+
+}
+</style>
+</head>
+<body>
+<form action="/EditEhdokkaat" method="Get">  
+ <h1>Edit candidate</h1>  
+<h2>Load candidate data</h2>
+<table>
+<tr><td>User_id:<input type="number" class="in" name="EHDOKAS_ID"></td></tr>
+<tr><td><a href='EditEhdokkaat/LoadCand'><input type="submit" value="Search for Candidate"></a></td></tr>
+</table>
+</form>
+<h2>Candidate data</h2>
+<form  action="EditEhdokkaat" method="Post" >
+<table>   
+   
+  <br> <br> <br>
+<tr><td>Existing User id :<input type="number" class="in" name="EHDOKAS_ID"></td></tr>  
+<tr><td>SUKUNIMI:</td><td><input type="text"  class="in" name="SUKUNIMI"/></td></tr>  
+<tr><td>ETUNIMI:</td><td><input type="text" class="in" name="ETUNIMI"/></td></tr>  
+<tr><td>PUOLUE:</td><td><input type="text" class="in" name="PUOLUE"/></td></tr>  
+<tr><td>KOTIPAIKKAKUNTA:</td><td>  
+<input   type="text" name="KOTIPAIKKAKUNTA" class="in" style="width:140px">  
+
+ <tr><td>IKA:</td><td><input type="number" class="in" name="IKA"/></td></tr>  
+ <tr><td>MIKSI_EDUSKUNTAAN:</td><td><input type="text" class="in" name="MIKSI_EDUSKUNTAAN"/></td></tr>
+ <tr><td>MITA_ASIOITA_HALUAT_EDISTAA:</td><td><input type="text" class="in" name="MITA_ASIOITA_HALUAT_EDISTAA"/></td></tr>
+ <tr><td>AMMATTI:</td><td><input type="text"  class="in" name="AMMATTI"/></td></tr>
+  
+<tr><td><br> <a href='EditEhdokkaat'><input type="submit"  value="Update Candidate"></a></td></tr>
+  <tr><td>  <br>    <a href='show'>View ehdokkaat</a>
+</td></tr>
+  
+</table>  
+</form>
+</body>
+</html>
